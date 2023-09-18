@@ -3,5 +3,5 @@ export function MenuProduct(props) {
 
     if (!product?.name) return;
 
-    return <div>{product.name} {product.price} €</div>;
+    return <div>{product.name} {product.size ? "(" + product.size + ")" : "" } {product.price} €</div>;
 }
