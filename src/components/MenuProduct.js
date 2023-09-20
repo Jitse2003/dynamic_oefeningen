@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+
+MenuProduct.propTypes = {name: PropTypes.string, price: PropTypes.string, note : PropTypes.string}
 export function MenuProduct(props) {
     const {product} = props;
 
