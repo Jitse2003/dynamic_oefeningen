@@ -1,16 +1,35 @@
 import PropTypes from 'prop-types';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export function MenuProduct(props) {
     const {product} = props;
 
     if (!product?.name) return;
 
-    return <div style={{display: "flex", marginRight: "20em"}}><span style={{flex: "auto"}}> {product.name} <span
-        style={{fontSize: "smaller", color: "blue"}}><ProductSize product={product}></ProductSize> <ProductNote
-        product={product}/> </span> </span> {product.price}€</div>;
+    return <div className={"container"}>
+        <div className={"row mt-3 g-0"}>
+
+            <div className={"col-3"}>
+                {product.name}
+                <span className={"text-primary small"}>
+                    <ProductSize product={product}/>
+                <ProductNote product={product}/>
+                </span>
+
+            </div>
+            <div className={"col-auto"}>{product.price}€</div>
+        </div>
+
+    </div>;
 }
 
-MenuProduct.propTypes = {props: PropTypes.shape({name:PropTypes.string, price:PropTypes.number, note:PropTypes.string})}
+MenuProduct.propTypes = {
+    props: PropTypes.shape({
+        name: PropTypes.string,
+        price: PropTypes.number,
+        note: PropTypes.string
+    })
+}
 
 function ProductSize(props) {
     const {product} = props;
