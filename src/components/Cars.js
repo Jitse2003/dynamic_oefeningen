@@ -6,7 +6,7 @@ export function Cars(props) {
     return <div>
         <h2>{title}</h2>
         <div>
-            {cars.map(c => <Car car = {c}/>)}
+            {cars.map(c => <Car car={c}/>)}
         </div>
     </div>;
 
@@ -18,9 +18,8 @@ function Car(props) {
     return <div>
         <h2>{car.name}</h2>
         <div>{car.brand ? "merk: " + car.brand : ""}</div>
-        <div>{car.type ? "type: " +  car.type : ""}</div>
-        <div>{car.color ? "kleur: " +  car.color : ""}</div>
-
-
+        <div>{car.type ? "type: " + car.type : ""}</div>
+        {<div style={{backgroundColor: car.color === "blauw" ? "blue" : ""}}>{car.color ? "kleur: " + car.color : ""}</div>}
+        <div>{car.note ? "note: " + car.note : ""}</div>
     </div>;
 }

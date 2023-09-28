@@ -23,8 +23,12 @@ export const CAR_DATA = [
         brand: "fiat",
         type: "punto",
         color: "geel",
+        note: "die ging altijd kapot"
     },
     {id: 3, name: "die van mijn pa", brand: "volvo", color: "zwart"},
     {id: 4, name: "geitje", brand: "citroën",},
+    {id: 5, name: "gepoooooooitje", brand: "kzjbzdcva",},
+    {id: 6, name: "gzdvzvvzvzeitje", brand: "citraevfdvebeboën",},
+    {id: 7, name: "geivdzùvpzknvùzvtje", brand: "cizvdlzjvmnzvkztroën",},
 ];
 
