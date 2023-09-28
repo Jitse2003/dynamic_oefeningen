@@ -1,15 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Row} from "react-bootstrap";
+import {Section} from "./Section";
 
 export function Numbers(props) {
     const {title, numbers} = props;
 
-    return <div className={"container text-center"}>
-        <h3 className={"mb-5 mt-5"}>{title}</h3>
-        <Row>
-            {numbers.map(i => <Number number={i}/>)}
-        </Row>
-
+    return <div>
+        <Section title = {title} content = {numbers.map(i => <Number number={i}/>)}/>
     </div>;
 }
 
