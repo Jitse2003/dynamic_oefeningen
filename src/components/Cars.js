@@ -15,11 +15,11 @@ export function Cars(props) {
 function Car(props) {
     const {car} = props;
 
-    return <div>
+    return <div className={"mb-4"}>
         <h2>{car.name}</h2>
         <div>{car.brand ? "merk: " + car.brand : ""}</div>
         <div>{car.type ? "type: " + car.type : ""}</div>
-        {<div style={{backgroundColor: car.color === "blauw" ? "blue" : ""}}>{car.color ? "kleur: " + car.color : ""}</div>}
+        <div style={{backgroundColor: car.color === "blauw" ? "blue" : ""}}>{car.color ? "kleur: " + car.color : ""}</div>
         <div>{car.note ? "note: " + car.note : ""}</div>
     </div>;
 }
