@@ -3,7 +3,7 @@ export const PRODUCTS_DATA = [
     {name: "water", price: 1, note: "plat of bruisend"},
     {name: "bier", price: 1, size: 25},
     {name: "bier groot", price: 1, size: 33},
-    {name: "wijn", price: 2, size: 33, note:"rood, wit of rosé"},
+    {name: "wijn", price: 2, size: 33, note: "rood, wit of rosé"},
     {name: "cava", price: 3}
 ];
 
@@ -24,5 +24,7 @@ export const CAR_DATA = [
         type: "punto",
         color: "geel",
     },
+    {id: 3, name: "die van mijn pa", brand: "volvo", color: "zwart"},
+    {id: 4, name: "geitje", brand: "citroën",},
 ];
 

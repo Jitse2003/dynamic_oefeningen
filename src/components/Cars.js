@@ -17,9 +17,9 @@ function Car(props) {
 
     return <div>
         <h2>{car.name}</h2>
-        <div>{"merk: " + car.brand}</div>
-        <div>{"type: " + car.type}</div>
-        <div>{"kleur: " + car.color}</div>
+        <div>{car.brand ? "merk: " + car.brand : ""}</div>
+        <div>{car.type ? "type: " +  car.type : ""}</div>
+        <div>{car.color ? "kleur: " +  car.color : ""}</div>
 
 
     </div>;
