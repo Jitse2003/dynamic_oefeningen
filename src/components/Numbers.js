@@ -1,18 +1,21 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Col, Row} from "react-bootstrap";
 import {Section} from "./Section";
+import {MyCard} from "./MyCard";
 
 export function Numbers(props) {
     const {title, numbers} = props;
 
     return <div>
-        <Section title = {title} content = {numbers.map(i => <Number number={i}/>)}/>
+        <Section title = {title}>
+            {numbers.map(i => <Number number={i}/>)}
+        </Section>
     </div>;
 }
 
 function Number(props){
     const {number} = props
-    return <Col sm={4} className={"col-3"}>
-            {number}
-        </Col>;
+    return <MyCard xs = {4} sm = {4} md = {4} xxl = {4}>
+        {number}
+    </MyCard>
 }
