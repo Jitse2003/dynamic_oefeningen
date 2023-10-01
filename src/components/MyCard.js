@@ -1,6 +1,5 @@
 import {Card, Col} from "react-bootstrap";
 import PropTypes from "prop-types";
-import {Section} from "./Section";
 
 
 export function MyCard(props) {
