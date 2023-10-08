@@ -8,10 +8,12 @@ import {NumbersPage} from "./pages/NumbersPage";
 import {CarsPage} from "./pages/CarsPage";
 import {PersonsPage} from "./pages/PersonsPage";
 import {EventAndStatePage} from "./pages/EventAndStatePage";
+import {SearchPersonsPage} from "./pages/SearchPersonsPage";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {WikiPage} from "./pages/WikiPage";
+import {InputPage} from "./pages/InputPage";
 
 function App() {
     return (
@@ -24,6 +26,8 @@ function App() {
                 <Tab>Persons Page</Tab>
                 <Tab>Wiki Page</Tab>
                 <Tab>Events and State Page</Tab>
+                <Tab>Input Page</Tab>
+                <Tab>search</Tab>
             </TabList>
             <TabPanel>
                 <MenuCardPage products={PRODUCTS_DATA}/>
@@ -45,6 +49,12 @@ function App() {
             </TabPanel>
             <TabPanel>
                 <EventAndStatePage/>
+            </TabPanel>
+            <TabPanel>
+                <InputPage/>
+            </TabPanel>
+            <TabPanel>
+                <SearchPersonsPage persons={PERSON_DATA}/>
             </TabPanel>
         </Tabs>
 
