@@ -1,13 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Col, Row} from "react-bootstrap";
 import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 
 export function Numbers(props) {
-    const {title, numbers} = props;
+    const {title, numbers, defaultIsOpen} = props;
 
     return <div>
-        <Section title = {title}>
+        <Section title = {title} defaultIsOpen={defaultIsOpen}>
             {numbers.map(i => <Number number={i}/>)}
         </Section>
     </div>;

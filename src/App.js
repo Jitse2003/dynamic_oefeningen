@@ -7,6 +7,7 @@ import {MenuCardPage} from "./pages/MenuCardPage";
 import {NumbersPage} from "./pages/NumbersPage";
 import {CarsPage} from "./pages/CarsPage";
 import {PersonsPage} from "./pages/PersonsPage";
+import {EventAndStatePage} from "./pages/EventAndStatePage";
 import {Tab, TabList, TabPanel, Tabs} from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ function App() {
                 <Tab>Cars Page</Tab>
                 <Tab>Persons Page</Tab>
                 <Tab>Wiki Page</Tab>
+                <Tab>Events and State Page</Tab>
             </TabList>
             <TabPanel>
                 <MenuCardPage products={PRODUCTS_DATA}/>
@@ -40,6 +42,9 @@ function App() {
             </TabPanel>
             <TabPanel>
                 <WikiPage wikitexts={WIKI_TEST1_DATA}/>
+            </TabPanel>
+            <TabPanel>
+                <EventAndStatePage/>
             </TabPanel>
         </Tabs>
 

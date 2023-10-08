@@ -5,6 +5,6 @@ export function WikiPage(props) {
 
 
     return <div>
-        <WikiTexts wikitexts={wikitexts}/>
+        <WikiTexts wikitexts={wikitexts} defaultIsOpen={true}/>
     </div>
 }

@@ -4,7 +4,7 @@ export function CarsPage(props) {
     const {cars} = props;
     return (
         <div>
-            <Cars title={"Auto's"} cars={cars}/>
+            <Cars title={"Auto's"} cars={cars} defaultIsOpen={true}/>
         </div>
     );
 }

@@ -4,10 +4,10 @@ import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 
 export function Persons(props){
-    const {persons, title} = props;
+    const {persons, title, defaultIsOpen} = props;
 
     return <div>
-        <Section title = {title}>
+        <Section title = {title} defaultIsOpen={defaultIsOpen}>
             {persons.map(p => <Person person={p}/>)}
         </Section>
     </div>;

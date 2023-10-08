@@ -4,10 +4,10 @@ import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 
 export function Cars(props) {
-    const {title, cars} = props
+    const {title, cars, defaultIsOpen} = props
 
     return <div>
-        <Section title={title}>
+        <Section title={title} defaultIsOpen={defaultIsOpen}>
             {cars.map(i => <Car car={i}/>)}
         </Section>
     </div>;

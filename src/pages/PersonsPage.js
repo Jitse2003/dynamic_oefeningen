@@ -14,7 +14,7 @@ export function PersonsPage(props) {
 
 
     return <div>
-        <Persons title={"alle personen"} persons={persons}/>
+        <Persons title={"alle personen"} persons={persons} defaultIsOpen={true}/>
         <Persons title={"alle personen volgens leeftijd"} persons={persons.sort((a, b)=> a.age - b.age)}/>
         <Numbers title={"leeftijden"} numbers={persons.map(p => p.age)}/>
         <Numbers title={"unieke leeftijden gesorteerd"} numbers={Array.from(new Set(persons.map(p => p.age).sort()))}/>

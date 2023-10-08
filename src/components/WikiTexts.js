@@ -2,10 +2,10 @@ import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 
 export function WikiTexts(props) {
-    const {wikitexts} = props;
+    const {wikitexts, defaultIsOpen} = props;
 
     return <div className={""}>
-        <Section title={""}>
+        <Section title={""} defaultIsOpen={defaultIsOpen}>
             {wikitexts.map(w => <WikiText wikitext = {w} />)}
         </Section>
     </div>;
