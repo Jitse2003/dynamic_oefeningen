@@ -3,7 +3,7 @@ import {useState} from "react";
 
 export function SearchPersonsPage(props){
     const {persons} = props;
-    const [searchText, setSearchText] = useState();
+    const [searchText, setSearchText] = useState("");
 
     const filteredPersons = persons.filter(
         (person) =>

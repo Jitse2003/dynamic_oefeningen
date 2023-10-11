@@ -1,20 +1,28 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Section} from "./Section";
+import PropTypes from "prop-types";
 import {MyCard} from "./MyCard";
+import {Col} from "react-bootstrap";
+import {Section} from "./Section";
+
+
+function Number(props) {
+    const {number,onSelectNumber,onMarkedNumber,isMarked} = props;
+    return (
+        <Col xs={4} sm={3} md={2} xxl={1}>
+            <MyCard onMarkedNumber={onMarkedNumber} isMarked={isMarked}  onSelectNumber={onSelectNumber}>{number}</MyCard>
+        </Col>
+    );
+}
 
 export function Numbers(props) {
-    const {title, numbers, defaultIsOpen} = props;
-
-    return <div>
-        <Section title = {title} defaultIsOpen={defaultIsOpen}>
-            {numbers.map(i => <Number number={i}/>)}
+    const {numbers, title,onSelectNumber,markedNumber,defaultIsOpen} = props
+    return (
+        <Section defaultIsOpen={defaultIsOpen} title={title}>
+            {numbers.map((n, i) => <Number key={i} isMarked={n === markedNumber} onSelectNumber={onSelectNumber} number={n}/>)}
         </Section>
-    </div>;
+    );
 }
 
-function Number(props){
-    const {number} = props
-    return <MyCard xs = {4} sm = {4} md = {4} xxl = {4}>
-        {number}
-    </MyCard>
-}
+Numbers.propTypes = {
+    numbers: PropTypes.array,
+    title: PropTypes.string
+};

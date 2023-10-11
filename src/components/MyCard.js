@@ -1,13 +1,17 @@
 import {Card, Col} from "react-bootstrap";
-import PropTypes from "prop-types";
+import PropTypes, {number} from "prop-types";
 
 
 export function MyCard(props) {
-    const {children, xs, sm, md, xxl} = props;
+    const {children, xs, sm, md, xxl, onSelectNumber, isMarked, onMarkedNumber} = props;
 
     return (
         <Col xs={xs} sm={sm} md={md} xxl={xxl} className={"text-center "}>
-            <Card className="m-2 p-2 shadow-sm">
+            <Card
+                onClick={() => onSelectNumber ? onSelectNumber(children) : alert(children)}
+                className="m-2 p-2 shadow-sm text-center"
+                style={isMarked ? {backgroundColor: "orange"} : {backgroundColor: "white"}}
+            >
                 {children}
             </Card>
         </Col>
@@ -16,8 +20,8 @@ export function MyCard(props) {
 
 MyCard.propTypes = {
     children: PropTypes.node.isRequired,
-    xs: PropTypes.number.isRequired,
-    sm: PropTypes.number.isRequired,
-    md: PropTypes.number.isRequired,
-    xxl: PropTypes.number.isRequired,
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    md: PropTypes.number,
+    xxl: PropTypes.number,
 }

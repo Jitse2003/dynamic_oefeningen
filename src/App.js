@@ -14,6 +14,7 @@ import 'react-tabs/style/react-tabs.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {WikiPage} from "./pages/WikiPage";
 import {InputPage} from "./pages/InputPage";
+import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Tab>Persons Page</Tab>
                 <Tab>Wiki Page</Tab>
                 <Tab>Events and State Page</Tab>
+                <Tab>Favorite Number Page</Tab>
                 <Tab>Input Page</Tab>
                 <Tab>search</Tab>
             </TabList>
@@ -49,6 +51,9 @@ function App() {
             </TabPanel>
             <TabPanel>
                 <EventAndStatePage/>
+            </TabPanel>
+            <TabPanel>
+                <FavoriteNumberPage numbers={NUMBER_DATA}/>
             </TabPanel>
             <TabPanel>
                 <InputPage/>
