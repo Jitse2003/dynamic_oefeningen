@@ -4,7 +4,7 @@ import {Section} from "./Section";
 export function Cities(props){
     const {title, cities} = props;
     return <Section title={title}>
-        {cities.map(c => <City city={c}/>)}
+        {cities.map((c, i) => <City key={i} city={c}/>)}
     </Section>
 }
 

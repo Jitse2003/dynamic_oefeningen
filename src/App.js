@@ -1,4 +1,5 @@
 import './App.css';
+import './services/firebase'
 
 import {CAR_DATA, NUMBER_DATA, PERSON_DATA, PRODUCTS_DATA, WIKI_TEST1_DATA} from "./data/data";
 import {PicturesPage} from "./pages/PicturesPage";

@@ -8,7 +8,7 @@ export function Persons(props){
 
     return <div>
         <Section title = {title} defaultIsOpen={defaultIsOpen}>
-            {persons.map(p => <Person person={p}/>)}
+            {persons.map((p, i) => <Person key={i} person={p}/>)}
         </Section>
     </div>;
 }
@@ -25,5 +25,5 @@ function Person(props){
 
 Persons.propTypes = {
     title: PropTypes.string.isRequired,
-    persons: PropTypes.node.isRequired
+    persons: PropTypes.node
 }
