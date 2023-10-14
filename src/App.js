@@ -16,6 +16,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {WikiPage} from "./pages/WikiPage";
 import {InputPage} from "./pages/InputPage";
 import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
+import {PersonsFromDbPage} from "./pages/PersonsFromDbPage";
+import {CarsFromDbPage} from "./pages/CarsFromDbPage";
 
 function App() {
     return (
@@ -31,6 +33,8 @@ function App() {
                 <Tab>Favorite Number Page</Tab>
                 <Tab>Input Page</Tab>
                 <Tab>search</Tab>
+                <Tab>Persons from DB</Tab>
+                <Tab>Cars from DB</Tab>
             </TabList>
             <TabPanel>
                 <MenuCardPage products={PRODUCTS_DATA}/>
@@ -61,6 +65,12 @@ function App() {
             </TabPanel>
             <TabPanel>
                 <SearchPersonsPage persons={PERSON_DATA}/>
+            </TabPanel>
+            <TabPanel>
+                <PersonsFromDbPage/>
+            </TabPanel>
+            <TabPanel>
+                <CarsFromDbPage/>
             </TabPanel>
         </Tabs>
 

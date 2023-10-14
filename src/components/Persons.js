@@ -6,6 +6,8 @@ import {MyCard} from "./MyCard";
 export function Persons(props){
     const {persons, title, defaultIsOpen} = props;
 
+    if(!persons) return "";
+
     return <div>
         <Section title = {title} defaultIsOpen={defaultIsOpen}>
             {persons.map((p, i) => <Person key={i} person={p}/>)}
@@ -25,5 +27,5 @@ function Person(props){
 
 Persons.propTypes = {
     title: PropTypes.string.isRequired,
-    persons: PropTypes.node
+    persons: PropTypes.array
 }
