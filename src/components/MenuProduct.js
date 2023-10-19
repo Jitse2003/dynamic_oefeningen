@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export function MenuProduct(props) {
     const {product} = props;
 
-    if (!product?.name) return;
+    if(!product) return "";
 
     return <div className={"container"}>
         <div className={"row mt-3 g-0"}>

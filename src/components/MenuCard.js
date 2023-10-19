@@ -1,9 +1,11 @@
 import {PRODUCTS_DATA} from "../data/data";
 import {MenuProduct} from "./MenuProduct";
 
-export function MenuCard() {
+export function MenuCard(props) {
+    const {products} = props;
+
     return <div>
             <h1>Menu</h1>
-            {PRODUCTS_DATA.map(p => <MenuProduct key={p.name} product={p}/>)}
+            {products.map(p => <MenuProduct key={p.name} product={p}/>)}
            </div>
 }

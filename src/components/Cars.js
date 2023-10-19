@@ -6,6 +6,8 @@ import {MyCard} from "./MyCard";
 export function Cars(props) {
     const {title, cars, defaultIsOpen} = props
 
+    if(!cars) return "";
+
     return <div>
         <Section title={title} defaultIsOpen={defaultIsOpen}>
             {cars.map(i => <Car car={i}/>)}
