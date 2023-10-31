@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {Section} from "./Section";
 import {MyCard} from "./MyCard";
 import {MyButton} from "./MyButton";
+import {usePersonsFromDbContext} from "../contexts/PersonsFromDbContext";
 
 export function Persons(props) {
     const {persons, title, defaultIsOpen, onDeletePerson, onEditPerson, onPersonSelected} = props;

@@ -1,5 +1,3 @@
-import {PRODUCTS_DATA} from "../data/data";
-import {MenuProduct} from "../components/MenuProduct";
 import {Picture} from "../components/Picture";
 
 export function PicturesPage(props) {

@@ -1,44 +1,41 @@
-import {firestoreDB} from "../services/firebase";
-import {useCollectionData} from "react-firebase-hooks/firestore";
-import {collection, orderBy, query, addDoc, updateDoc, deleteDoc} from 'firebase/firestore';
+import {updateDoc, deleteDoc} from 'firebase/firestore';
 import {Persons} from "../components/Persons";
 import {useState} from "react";
 import {PersonFormEdit} from "../components/PersonFormEdit";
+import {useMessageContext} from "../contexts/messageContext";
+import {Toast} from "react-bootstrap";
+import {usePersonsFromDbContext} from "../contexts/PersonsFromDbContext";
 
-
-const personConverter = {
-    toFirestore: function (dataInApp) {
-        return {
-            name: dataInApp.name,
-            age: Number(dataInApp.age),
-            city: dataInApp.city
-        }
-    },
-    fromFirestore: function (snapshot, options) {
-        const data = snapshot.data(options);
-        return {...data, id: snapshot.id, ref: snapshot.ref}
-    }
-}
 
 export function PersonsFromDbPage() {
-    const collectionRef = collection(firestoreDB, 'persons').withConverter(personConverter);
-    const queryRef = query(collectionRef, orderBy("name"));
-    const [values, loading, error] = useCollectionData(queryRef);
+    const {message, clearMessage} = useMessageContext();
+    const {persons, loading, error, addDummyPerson, incrementAllAges, deletePerson} = usePersonsFromDbContext();
+
     const [testInput, setTestInput] = useState();
 
     const [personSelected, setPersonSelected] = useState();
     const [show, setShow] = useState(false);
 
-    console.log({values, loading, error});
+
+
+    console.log({persons, loading, error});
 
     const [searchText, setSearchText] = useState("");
-    if (!values) return <div></div>
+    if (!persons) return <div></div>
 
     return (
         <>
+            <Toast show={message !== ""} onClose={() => clearMessage()}>
+                <Toast.Header>
+                    <strong className="me-auto">Message</strong>
+                </Toast.Header>
+                <Toast.Body>{message}</Toast.Body>
+            </Toast>
+
+
             <button onClick={() => addDummyPerson()}>Add</button>
-            <button onClick={() => incrementAllAges(values)}>Increment</button>
-            <button onClick={() => decrementAllAges(values)}>Decrement</button>
+            <button onClick={() => incrementAllAges()}>Increment</button>
+            <button onClick={() => decrementAllAges(persons)}>Decrement</button>
 
 
             {personSelected ? <PersonFormEdit setPersonSelected={setPersonSelected} personSelected={personSelected}
@@ -48,52 +45,11 @@ export function PersonsFromDbPage() {
             <Persons title={"alle personen"} onDeletePerson={deletePerson} onEditPerson={editPerson}
                      defaultIsOpen={true}
                      onPersonSelected={setPersonSelected}
-                     persons={values}/>
+                     persons={persons}/>
         </>
     )
 }
 
-async function addDummyPerson() {
-    const collectionRef = collection(firestoreDB, 'persons').withConverter(personConverter);
-
-    const dummyPerson = {name: "DUMMY", age: 19, city: "Mechelen"}
-    try {
-        await addDoc(collectionRef, dummyPerson);
-        console.log('add dummy person done');
-        alert('GELUKT')
-    } catch {
-        console.log("ERROR add dummy person NOT done");
-        alert('NIET GELUKT')
-
-    }
-}
-
-function deletePerson(person) {
-    try {
-        deleteDoc(person.ref, person);
-        console.log('delete person done');
-        alert('GELUKT')
-    } catch {
-        console.log("ERROR delete dummy person NOT done");
-        alert('NIET GELUKT')
-
-    }
-}
-
-async function incrementAllAges(persons) {
-    try {
-        const arrayOfPromises = persons.map(person =>
-            updateDoc(person.ref, {age: person.age + 1}));
-        Promise.all(arrayOfPromises)
-        console.log('increment all persons person done');
-        alert('GELUKT')
-    } catch {
-        console.log("increment all persons person NOT done");
-        alert('NIET GELUKT')
-
-    }
-
-}
 
 async function decrementAllAges(persons) {
     persons.forEach(person => updateDoc(person.ref, {age: person.age - 1}))

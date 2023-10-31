@@ -19,10 +19,15 @@ import {FavoriteNumberPage} from "./pages/FavoriteNumberPage";
 import {PersonsFromDbPage} from "./pages/PersonsFromDbPage";
 import {CarsFromDbPage} from "./pages/CarsFromDbPage";
 import {MenuProductsFromDbPage} from "./pages/MenuProductsFromDbPage";
+import {useLocalStorage} from "@uidotdev/usehooks";
+import {MessageProvider} from "./contexts/messageContext";
+import {PersonsFromDbProvider} from "./contexts/PersonsFromDbContext";
 
-function App() {
+function ProvidedApp() {
+    const [defaultTab, setDefaultTab] = useLocalStorage("defaultTabIndex", 0)
+
     return (
-        <Tabs>
+        <Tabs defaultIndex={defaultTab} onSelect={(index) => setDefaultTab(index)}>
             <TabList>
                 <Tab>Menu Card Page</Tab>
                 <Tab>Pictures Page</Tab>
@@ -69,7 +74,9 @@ function App() {
                 <SearchPersonsPage persons={PERSON_DATA}/>
             </TabPanel>
             <TabPanel>
-                <PersonsFromDbPage/>
+                <PersonsFromDbProvider>
+                    <PersonsFromDbPage/>
+                </PersonsFromDbProvider>
             </TabPanel>
             <TabPanel>
                 <CarsFromDbPage/>
@@ -78,6 +85,15 @@ function App() {
                 <MenuProductsFromDbPage/>
             </TabPanel>
         </Tabs>
+    );
+}
+
+function App() {
+    return (
+            <MessageProvider>
+                <ProvidedApp/>
+            </MessageProvider>
+
 
     );
 }
